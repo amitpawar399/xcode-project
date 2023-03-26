@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-              sh xcodebuild -scheme xcode-project build -destination \'platform=iOS Simulator,name=iPhone 14\'
+              sh xcodebuild -list -project xcode-project.xcodeproj
+              echo 'Build----'
+              sh xcodebuild -scheme xcode-project build -destination platform=iOS Simulator,name=iPhone 14
                echo 'Build'
             }
         }
