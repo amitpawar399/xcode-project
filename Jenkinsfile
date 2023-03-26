@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-               sleep 10
+               sh 'xcodebuild -scheme xcode-project build -destination 'platform=iOS Simulator,name=iPhone 14'
                echo 'Build'
             }
         }
         stage('Test') { 
             steps {
-               sleep 10
+              sh 'xcodebuild -scheme xcode-project archive -archivePath archive/XcodeProjectArchive.xcarchive'
                echo 'Test'
             }
         }
