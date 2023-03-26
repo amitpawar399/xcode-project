@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-              sh xcodebuild -list -project xcode-project.xcodeproj
-              echo 'Build----'
-               echo 'Build'
+              sh 'build-script.sh'
             }
         }
         stage('Test') { 
