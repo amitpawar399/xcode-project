@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-              sh 'build-script.sh'
+             withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
+               sh 'build-script.sh'
+            }
+              
             }
         }
         stage('Test') { 
